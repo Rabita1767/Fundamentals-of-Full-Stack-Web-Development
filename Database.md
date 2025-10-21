@@ -58,3 +58,27 @@ NoSQL databases store data in a more flexible format and are mostly used for lar
 - Data is stored directly in main memory (RAM) instead of disk storage.
 - This allows for faster data access.
 - Example: Redis.
+
+## Table, Row, Column
+
+- **Table**: The fundamental unit of RDBMS. It has a predefined schema with names and data types.
+- **Row**: Represents a record or tuple in the table.
+- **Column**: Represents an attribute or field in the table.
+
+---
+
+## Primary Key, Foreign Key, Candidate Key
+
+- **Primary Key**: A single column or a set of columns that uniquely identifies a row (record) in a table. Each table can have only one primary key, and it cannot be null.
+
+- **Foreign Key**: A single column or a set of columns that is the primary key of another table. It can contain duplicate values and can be null (unless the `NOT NULL` constraint is applied). A table can have multiple foreign keys. It is used to establish relationships between tables.
+
+- **Candidate Key**: A single column or a set of columns that uniquely identifies each row (record) in a table. A table can have multiple candidate keys. One of them is designated as the primary key, while the others are known as alternate keys. Candidate keys can be null and can be used to establish relationships with other tables via foreign keys.
+
+---
+
+## Composite Key & Surrogate Key
+
+- **Composite Key**: When a single column is insufficient to uniquely identify each record (row) in a table, a composite key is used. It is created by combining two or more columns to serve as the primary key of the table.
+
+- **Surrogate Key**: A system-generated unique identifier that acts as the primary key of a table. It is used when the existing data in a table cannot serve as a primary key, or when the data is complex or subject to frequent changes.
