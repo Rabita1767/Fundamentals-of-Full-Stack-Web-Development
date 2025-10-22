@@ -94,3 +94,21 @@ NoSQL databases store data in a more flexible format and are mostly used for lar
 - **Simple and Composite**:email is a simple attribute as it can't be divided into anything else but name can be a composite attribute as it can be created using 3 part like firstName,middleName and lastName
 - **Stored and Derived**:Date of Birth is a stored attribute but age is a derived attribute as it can be calculated from Date of Birth
 - **Key and Non-key**:Email can be a key attribute as it can be unique for all users but Name,Age etc can be non-key attribute
+
+## Relationships
+
+Relationships between tables are fundamental concept of Relational Database Management System(RDBMS). It's a logical connection between two or more tables that defines how data in those tables are linked to each-other.
+They are implemented through Primary Key and Foreign Key.
+3 types of relationships
+1.One to One
+2.One to Many
+3.Many to Many
+
+- **One to One**: When One record from a table is linked with only one record of another table then this relationship is defined as One to One relationship. Example: A Person has only one Passport. One Passport belongs to only one Person.
+- **One to Many**: A single record in one table can be linked to multiple records in another. This is the most prevalent type in relational databases. A Customers table and an Orders table, where one customer can place many orders, but each order is tied to a single customer.
+- **Many to Many**: A many-to-many relationship involves multiple records in one table linking to multiple records in another. This requires an intermediate or "junction" table to function in a relational database, establishing two one-to-many relationships. Example: A Students table and a Courses table, where a student can enroll in multiple courses, and a course can have many students. A junction table like Enrollments would contain foreign keys from both tables.
+
+## Why relationships are important
+
+Data redundency is reduced by organizing data into separate tables.
+Efficient Data retrival is ensured by using complex queries that join data from multiple tables
