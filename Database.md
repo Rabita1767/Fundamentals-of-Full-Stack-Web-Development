@@ -82,3 +82,15 @@ NoSQL databases store data in a more flexible format and are mostly used for lar
 - **Composite Key**: When a single column is insufficient to uniquely identify each record (row) in a table, a composite key is used. It is created by combining two or more columns to serve as the primary key of the table.
 
 - **Surrogate Key**: A system-generated unique identifier that acts as the primary key of a table. It is used when the existing data in a table cannot serve as a primary key, or when the data is complex or subject to frequent changes.
+
+## Entity and Attributes
+
+- **Entity**: A real world object or concept. Example: Student, Course
+- **Attribute**: Properties or characteristics that define an entity.
+
+## Types of Attrubutes
+
+- **Single Valued and Multi Valued**: Age is single valued ands phone number can be multi valued
+- **Simple and Composite**:email is a simple attribute as it can't be divided into anything else but name can be a composite attribute as it can be created using 3 part like firstName,middleName and lastName
+- **Stored and Derived**:Date of Birth is a stored attribute but age is a derived attribute as it can be calculated from Date of Birth
+- **Key and Non-key**:Email can be a key attribute as it can be unique for all users but Name,Age etc can be non-key attribute
