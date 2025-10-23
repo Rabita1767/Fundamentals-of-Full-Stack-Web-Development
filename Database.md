@@ -127,3 +127,27 @@ In this architecture, the client end directly communicates with the database on 
 ### Three-Tier Architecture
 
 There is another layer between the client and the server. The client does not directly communicate with the database.Instead, it communicate with the application server. The application server further communicate with the database.
+
+## ACID Properties
+
+ACID properties are fundamental principles that ensure the reliability and integrity of database transactions.
+
+### Atomicity
+
+- **Definition**: Ensures that a transaction is treated as a single, indivisible unit. Either all operations within the transaction are executed successfully, or none are.
+- **Example**: In a bank transfer, if one account is debited, the other must be credited. If any part of the transaction fails, the entire transaction is rolled back.
+
+### Consistency
+
+- **Definition**: Guarantees that a database remains in a valid state before and after a transaction, adhering to all defined rules and constraints.
+- **Example**: A transaction that would result in a negative account balance violates constraints and is canceled.
+
+### Isolation
+
+- **Definition**: Ensures that transactions are executed independently of one another. Partial or uncommitted changes made by one transaction are not visible to other transactions.
+- **Example**: Two users updating the same account balance simultaneously will not interfere with each other.
+
+### Durability
+
+- **Definition**: Ensures that once a transaction is committed, its changes are permanent, even in the event of a system crash.
+- **Example**: After a successful transaction, the updated account balances remain intact even if the database server restarts.
