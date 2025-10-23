@@ -112,3 +112,18 @@ They are implemented through Primary Key and Foreign Key.
 
 Data redundency is reduced by organizing data into separate tables.
 Efficient Data retrival is ensured by using complex queries that join data from multiple tables
+
+## Classification of DBMS Architecture
+
+### One-Tier Architecture
+
+In this architecture, the presentation layer, application server, and database are all inside the same application.  
+**Example:** Microsoft Excel
+
+### Two-Tier Architecture
+
+In this architecture, the client end directly communicates with the database on the server side. The server side is responsible for query processing and transaction management functionalities.
+
+### Three-Tier Architecture
+
+There is another layer between the client and the server. The client does not directly communicate with the database.Instead, it communicate with the application server. The application server further communicate with the database.
