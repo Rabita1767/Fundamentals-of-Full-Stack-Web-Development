@@ -151,3 +151,21 @@ ACID properties are fundamental principles that ensure the reliability and integ
 
 - **Definition**: Ensures that once a transaction is committed, its changes are permanent, even in the event of a system crash.
 - **Example**: After a successful transaction, the updated account balances remain intact even if the database server restarts.
+
+## BASE Properties
+
+This is a consistency model for distributed database system like NoSql.
+
+- **Basically Available**: The system is responsive and available, meaning it will respond to requests even if some parts of it are unavailable. It prioritizes the system's responsiveness to reads and writes rather than immediate availability of all data across all nodes.
+
+- **Soft State**: The system might not be fully synchronized yet, but without any input, background processes and asynchronous operations will eventually make the system consistent.
+
+- **Eventually Consistent**: Data consistency will be achieved across all nodes after a certain period of time.
+
+### Example
+
+Suppose you are ordering an iPhone from Amazon. You click on the "Buy Now" button, and your order is confirmed immediately. Here, the data might have been updated in your region but might not be fully updated across all regions. However, you do not receive any error, and you get an immediate response. This represents the **Basically Available** state of a system.
+
+Now, the period during which the data across all regions is not fully synchronized is referred to as the **Soft State**. For instance, the data in your region (e.g., Dhaka region) might be updated, but in another region (e.g., Singapore region), it might not be updated yet. Someone from the Singapore region might see outdated data temporarily.
+
+After a certain period of time, the data across all regions will be updated. This is referred to as **Eventual Consistency**.
