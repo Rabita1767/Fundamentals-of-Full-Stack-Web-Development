@@ -267,3 +267,42 @@ If we have a table with three columns: `student_id`, `student_name`, and `course
      - The combination of `student_id` and `course_name` forms the composite primary key.
 
 This method ensures data normalization and avoids redundancy.
+
+## 2nd Normal Form (2NF)
+
+For a table to be in 2nd Normal Form, it must satisfy the following conditions:
+
+1. The table should be in 1st Normal Form (1NF).
+2. Every non-prime attribute must be fully functionally dependent on the candidate key(s). This means no partial dependency should exist for non-prime attributes.
+
+### Example
+
+Consider a table with the following attributes:
+
+- `customer_id`
+- `store_id`
+- `location`
+
+Here:
+
+- The candidate key is a combination of `customer_id` and `store_id`.
+- `location` is a non-prime attribute.
+
+In this case, `location` is determined by only a part of the candidate key (`store_id`) rather than the entire candidate key (`customer_id` and `store_id`). This partial dependency means the table is not in 2nd Normal Form.
+
+### Solution
+
+To resolve this issue, we can split the table into two separate tables:
+
+1. **Store Table**:
+
+   - Attributes: `store_id`, `location`
+   - Candidate Key: `store_id`
+   - The non-prime attribute `location` is fully dependent on the candidate key `store_id`.
+
+2. **Customer-Store Table**:
+   - Attributes: `customer_id`, `store_id`
+   - Candidate Key: A combination of `customer_id` and `store_id`
+   - No non-prime attributes are present.
+
+By restructuring the data into these two tables, we eliminate partial dependency and ensure the tables are in 2nd Normal Form.
