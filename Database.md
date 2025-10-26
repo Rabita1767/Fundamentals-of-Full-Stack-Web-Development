@@ -233,4 +233,37 @@ Column-level redundancy is responsible for creating insertion, deletion, and upd
    Suppose a course named "Bangla" is instructed by Mr. Patwary with a salary of 35,000. Only one student, with `student_id` 5 and `student_name` "Rabita," is enrolled in this course. If we delete the record for `student_id` 5, it will also remove the course-related information. Since this was the only record containing the course details, the course information is unintentionally lost. This is called a **deletion anomaly**.
 
 - **Update Anomaly**:  
-   Suppose two students, with `student_id` 1 and 2, are enrolled in the course "English." If we update the salary for `student_id` 2, it will change the salary for that record. However, another record also contains information about this course but does not reflect the updated salary value. This inconsistency is called an **update anomaly**.
+   Suppose two students, with `student_id` 1 and 2, are enrolled in the course "English." If we update the salary for `student_id` 2, it will change the salary for that record. However, another record also contains information about this course but does not reflect the updated salary value. This inconsistency is called an **update anomaly**. Now you can think why not update the salary targeting the course_name. Yes, we can absulately do that. It does solve the inconsistency issue but it's going to create time complexity issue as the update going to happen in multiple rows.
+
+## 1st Normal Form (1NF)
+
+A table should not contain multi-valued attributes.
+
+### Example
+
+If we have a table with three columns: `student_id`, `student_name`, and `course_name`, a student can be enrolled in more than one course. In this case, the `course_name` attribute will contain multiple values, indicating that the table is not in 1NF.
+
+### Methods to Achieve 1NF
+
+#### Method 1: Create Separate Rows for Multi-Valued Attributes
+
+- Assign a primary key so that each primary key is associated with a single record only.
+- If needed, use a composite key as the primary key.
+- **Example**: In our case, we can make `student_id` and `course_name` the composite primary key. This will transform the table into 1NF.
+
+#### Method 2: Create Separate Columns for Multi-Valued Attributes
+
+- Create additional columns for each value of the multi-valued attribute.
+- **Issues**: This approach is inefficient because:
+  - The number of columns required depends on the maximum number of values, which can vary.
+  - Most cells may remain `NULL` if many students are enrolled in only one course.
+
+#### Method 3: Create Multiple Tables (Recommended)
+
+- Split the data into two tables:
+  1. **Base Table**: Contains `student_id` and `student_name`. Here, `student_id` is the primary key.
+  2. **Reference Table**: Contains `student_id` and `course_name`. In this table:
+     - `student_id` acts as a foreign key.
+     - The combination of `student_id` and `course_name` forms the composite primary key.
+
+This method ensures data normalization and avoids redundancy.
