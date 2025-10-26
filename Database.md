@@ -210,3 +210,27 @@ Structured Query Language (SQL) is a programming language used to retrieve and m
 | **Data Control Language (DCL)**        | `GRANT`, `REVOKE`                     | Statements to limit access to the data.                              |
 | **Transaction Control Language (TCL)** | `COMMIT`, `ROLLBACK`, `SAVEPOINT`     | Statements to control the transactions in a session.                 |
 | **Data Query Language (DQL)**          | `SELECT`                              | Statements used to view the data.                                    |
+
+## Introduction to Normalization
+
+Normalization is the process of organizing attributes in such a way that data redundancy is reduced or eliminated, and anomalies like insertion, deletion, and update anomalies are resolved.
+
+### Data Redundancy
+
+#### Row-Level Data Redundancy
+
+- Row-level redundancy can be reduced by assigning a primary key to a table.
+
+#### Column-Level Data Redundancy
+
+Column-level redundancy is responsible for creating insertion, deletion, and update anomalies. Consider the following example:
+
+- **Insertion Anomaly**:  
+   Suppose we have a `student_course` table with columns such as `student_id`, `student_name`, `course_name`, `instructor_name`, and `salary`.  
+   If the university introduces a new course called "MBBS" and we try to insert this record into the `student_course` table, it will fail. Why? Because no student has enrolled in this course yet, so the `student_id` is missing in the record. Since `student_id` is the primary key of this table, it is required. This is called an **insertion anomaly**.
+
+- **Deletion Anomaly**:  
+   Suppose a course named "Bangla" is instructed by Mr. Patwary with a salary of 35,000. Only one student, with `student_id` 5 and `student_name` "Rabita," is enrolled in this course. If we delete the record for `student_id` 5, it will also remove the course-related information. Since this was the only record containing the course details, the course information is unintentionally lost. This is called a **deletion anomaly**.
+
+- **Update Anomaly**:  
+   Suppose two students, with `student_id` 1 and 2, are enrolled in the course "English." If we update the salary for `student_id` 2, it will change the salary for that record. However, another record also contains information about this course but does not reflect the updated salary value. This inconsistency is called an **update anomaly**.
