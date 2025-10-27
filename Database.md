@@ -318,7 +318,7 @@ By restructuring the data into these two tables, we eliminate partial dependency
 
 ### What is a Transitive Dependency?
 
-A **transitive dependency** occurs when a **non-key attribute** depends on **another non-key attribute**, which in turn depends on the **primary key**.
+When a non-key attribute can be determined by another non-key attribute which is determined by a key attribute, then it's called transitive dependency.
 
 In other words, if:  
 A → B → C
@@ -347,14 +347,15 @@ Consider a table named **`Student`** with the following attributes:
 - **Direct dependency:** `student_id → batch_id`
 - **Transitive dependency:** `student_id → batch_id → batch_name`
 
-Here, `batch_name` depends on `batch_id`, which depends on `student_id`.  
+Here is an example of a table called student with three attributes, student_id, batch_id and batch_name. student_id is the primary key of this table and batch_id a non-key attribute is determined by student_id. This is a direct relationship. But, a non-key attribute batch_name can be determined by another non-key attribute batch_id, which is determined by primary key student_id. This is an indirect relationship and is called transitive dependency.
+`batch_name` depends on `batch_id`, which depends on `student_id`.  
 This indirect dependency (`student_id → batch_name`) violates **3NF**.
 
 ---
 
 ### Solution
 
-To remove the transitive dependency, split the table into two separate tables:
+To solve this we can create two separate tables. One is Student table with student_id and batch_id and another is Batch table with batch_id and batch_name. student_id is the primary key of Student table and batch_id is the primary key of Batch table.
 
 #### 1. **Student Table**
 
