@@ -306,3 +306,73 @@ To resolve this issue, we can split the table into two separate tables:
    - No non-prime attributes are present.
 
 By restructuring the data into these two tables, we eliminate partial dependency and ensure the tables are in 2nd Normal Form.
+
+## 🧩 3rd Normal Form (3NF)
+
+### Conditions for 3NF
+
+1. The table should be in **Second Normal Form (2NF)**
+2. There should be **no transitive dependency**
+
+---
+
+### What is a Transitive Dependency?
+
+A **transitive dependency** occurs when a **non-key attribute** depends on **another non-key attribute**, which in turn depends on the **primary key**.
+
+In other words, if:  
+A → B → C
+
+and **A** is the primary key, then **A → C** is a **transitive dependency**.
+
+Transitive dependencies cause **data redundancy** and **anomalies**, such as:
+
+- **Insertion anomalies**
+- **Deletion anomalies**
+- **Update anomalies**
+
+---
+
+### 📘 Example
+
+Consider a table named **`Student`** with the following attributes:
+
+| student_id | batch_id | batch_name |
+| ---------- | -------- | ---------- |
+| 1          | B01      | CSE 2021   |
+| 2          | B01      | CSE 2021   |
+| 3          | B02      | EEE 2021   |
+
+- **Primary Key:** `student_id`
+- **Direct dependency:** `student_id → batch_id`
+- **Transitive dependency:** `student_id → batch_id → batch_name`
+
+Here, `batch_name` depends on `batch_id`, which depends on `student_id`.  
+This indirect dependency (`student_id → batch_name`) violates **3NF**.
+
+---
+
+### Solution
+
+To remove the transitive dependency, split the table into two separate tables:
+
+#### 1. **Student Table**
+
+| student_id | batch_id |
+| ---------- | -------- |
+| 1          | B01      |
+| 2          | B01      |
+| 3          | B02      |
+
+**Primary Key:** `student_id`
+
+#### 2. **Batch Table**
+
+| batch_id | batch_name |
+| -------- | ---------- |
+| B01      | CSE 2021   |
+| B02      | EEE 2021   |
+
+**Primary Key:** `batch_id`
+
+Now, the data redundancy is eliminated, and both tables can be joined using `batch_id` to retrieve the necessary data.
