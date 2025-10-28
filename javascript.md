@@ -38,4 +38,17 @@ After completion of the function execution, when the **"return"** keyword is met
 
 ## Call Stack
 
-As we have already discussed that everything happens in javascript happens inside an Execution Context. In the second phase of the Execution Context, which is known as the execution phase, whenever a new function is invoked, a new execution context is created. Whenever a function execution is completed, the control is set back to the place from where the function was invoked initially. Here, the concept of Call Stack comes in handy. It handles the creation and deletion of Execution Context. When a javascript code starts execution the Global Execution Context is pushed into the stack. In the code execution phase of new function is invoked, thus creates a new execution context, that execution context is pushed inside the call stack and only popped out when the execution of that function is completed
+As we have already discussed that everything happens in javascript happens inside an Execution Context. In the second phase of the Execution Context, which is known as the execution phase, whenever a new function is invoked, a new execution context is created. Whenever a function execution is completed, the control is set back to the place from where the function was invoked initially. Here, the concept of Call Stack comes in handy. It handles the creation and deletion of Execution Context. When a javascript code starts execution the Global Execution Context is pushed into the stack. In the code execution phase of new function is invoked, thus creates a new execution context, that execution context is pushed inside the call stack and only popped out when the execution of that function is completed.
+
+# JavaScript Hoisting
+
+In JavaScript, variables and functions are conceptually moved at the top of their current scope during the compilation phase, even before the code has started to execute. This is called **hoisting**.
+
+We have already discussed about execution context and its phases. During the **memory allocation phase**, JavaScript variables declared with `var`/`let`/`const` all allocate memory and are hoisted.
+
+- In case of variables declared with `var`, this variable is initialized with `undefined` and attached to the **Global object**.
+- In case of `let` or `const`, memory is allocated but **not initialized**, and attached to a separate memory space (**script's lexical environment**). This separate memory space cannot be accessed until a value is initialized to that variable.
+
+So, the time from when a variable declared with `let` or `const` is hoisted to the time it has been initialized with an actual value is called the **Temporal Dead Zone (TDZ)**.
+
+That's why if we try to access a variable declared with `var` before its initialization, we get `undefined`. But in the case of `let`/`const`, we get a **ReferenceError** because they remain in the Temporal Dead Zone. However, all three of them are hoisted.
