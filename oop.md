@@ -29,3 +29,39 @@ It defines the **properties** and **methods** that an object will have.
 5. **Improves maintainability** — modular and structured code is easier to update and manage.
 
 ---
+
+## Pillars of OOP
+
+1. **Encapsulation**
+2. **Inheritance**
+3. **Polymorphism**
+4. **Abstraction**
+
+## Encapsulation
+
+It is the process of binding data(attribute) and methods(functions) into a single unit or class. It is used to hide internal state pf an object and controlling access from unauthorized and unintended user
+
+## Inheritance
+
+When a new class inherits properties and behaviour (attributes and methods) from an existing class, then it's called Inheritance. The sub class can override existing functionalities or create it's own methods. It increases reusability.
+
+## Polymorphism
+
+Polymorphism stands for "Many Forms". When an interface or methods is implemented with different implementation then it's called polymorphism.
+There are teo types of polymorphism:
+
+1. Runtime Polymorphism/Method Overriding
+2. Compiletime Polymorphism/Method Overloading
+
+**Runtime Polymorphism/Method Overriding**
+
+When a new class extends an existing class, it inherits the properties and methods from the parent class. If we define a new implementation for a method in the subclass that was already defined in the parent class, it's called Method Overriding. Which method will be executed is determined at the runtime. That's why it's also known as Runtime Polymorphism.
+
+**Compiletime Polymorphism/Method Overloading**
+
+When two or more methods with the same name exists in the same class but with different parameters, it's called Method Overloading. Which method to be executed is decided based on the given arguments. It is done at compile time, so it's called compiletime Polymorphism.
+
+## Abstraction
+
+Abstraction is the process of data hiding. Means , it hides complex implementation and only show the essentials.
+It can be achieved through interfaces or abstract classes where a method is mentioned but not implemented. It will be implemented in his inherited classes
