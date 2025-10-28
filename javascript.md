@@ -35,3 +35,7 @@ In case of variables, they are initialized with **undefined** and functions are 
 In second phase called code execution phase, variables are assigned with their actual values and each time a function is invoked, a new execution context is created for that function and it again repeats the same steps.
 
 After completion of the function execution, when the **"return"** keyword is met, the control returns back to where the function was initially invoked.
+
+## Call Stack
+
+As we have already discussed that everything happens in javascript happens inside an Execution Context. In the second phase of the Execution Context, which is known as the execution phase, whenever a new function is invoked, a new execution context is created. Whenever a function execution is completed, the control is set back to the place from where the function was invoked initially. Here, the concept of Call Stack comes in handy. It handles the creation and deletion of Execution Context. When a javascript code starts execution the Global Execution Context is pushed into the stack. In the code execution phase of new function is invoked, thus creates a new execution context, that execution context is pushed inside the call stack and only popped out when the execution of that function is completed

@@ -17,7 +17,3 @@ The objective of this repository is to provide a structured and detailed guide f
 **Contributions and feedback are welcome** to make this resource even better!
 
 > ⚠️ **Note:** This repository is currently a work in progress. More topics and detailed explanations will be added soon.
-
-## Call Stack
-
-As we have already discussed that everything happens in javascript happens inside an Execution Context. In the second phase of the Execution Context, which is known as the execution phase, whenever a new function is invoked, a new execution context is created. Whenever a function execution is completed, the control is set back to the place from where the function was invoked initially. Here, the concept of Call Stack comes in handy. It handles the creation and deletion of Execution Context. When a javascript code starts execution the Global Execution Context is pushed into the stack. In the code execution phase of new function is invoked, thus creates a new execution context, that execution context is pushed inside the call stack and only popped out when the execution of that function is completed
