@@ -125,3 +125,66 @@ In the above example:
 - `setInterval()`
 - Network calls (e.g., `fetch`)
 - Promises
+
+## Promise in javascript
+
+Promise is an javascript object that represents an eventual completion or failure of an asynchronous task. It is a placeholder for a data that is not currently present but will be available after a certain period of time
+
+It has three states
+
+1. Pending
+2. Fulfilled
+3. rejected
+
+Promise is used while fetching data from api, reading file or any task that would take time but can't block the main execution thread.
+
+## Web APIs
+
+- setTimeout()
+- DOM APIs. Example: document.getElementById
+- fetch()
+- console
+
+## How does javascript handles asynchronous task with the help of event loop?
+
+Functions like setTimeout, fetch(), console, and DOM APIs are features provided by the browser, known as Web APIs.
+The browser also contains a JavaScript engine, which has a Call Stack — a place where JS instructions are executed one by one. If we have the below code snippet
+
+```javascript
+console.log("instruction01");
+setTimeout(() => {
+    console.log("Print after 5 seconds);
+}, 5000);
+fetch("www.example.com");
+console.log("instruction02");
+```
+
+Here’s what happens step by step 
+
+- console.log("instruction01")
+This line is pushed into the Call Stack and executed immediately by calling the console Web API, which prints the message.
+
+- setTimeout(...)
+The setTimeout function is then pushed into the Call Stack. It’s handled by the browser’s Web API, which sets a timer for 5 seconds.
+The callback inside setTimeout is registered in the Timer Queue and will only be executed after the timer expires.
+
+fetch("https://www.example.com")
+The fetch() call is also handled by the Web API. It starts a network request in the background and immediately returns a Promise.
+Once the network request finishes, the callback associated with the Promise (like .then()) is placed in the Microtask Queue.
+
+console.log("instruction02")
+This line runs immediately after because JavaScript continues executing synchronously while the asynchronous tasks (like the timer and network call) are being handled by the browser.
+
+When asynchronous tasks finish
+After the 5 seconds, the setTimeout callback is moved to the Task Queue.
+Similarly, once the fetch request is resolved, its Promise callback goes to the Microtask Queue.
+
+Event Loop’s role
+The Event Loop constantly checks whether the Call Stack is empty.
+
+If it’s empty, it first takes all callbacks from the Microtask Queue (like resolved Promises) and executes them.
+
+Once the Microtask Queue is cleared, it moves to the Task Queue (like setTimeout) and executes those callbacks next.
+
+This process ensures that asynchronous operations are handled efficiently without blocking the main thread.
+That’s how JavaScript — despite being single-threaded — performs non-blocking, asynchronous tasks smoothly with the help of the Event Loop.
