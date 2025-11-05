@@ -159,14 +159,14 @@ fetch("www.example.com");
 console.log("instruction02");
 ```
 
-Here’s what happens step by step 
+Here’s what happens step by step
 
 - console.log("instruction01")
-This line is pushed into the Call Stack and executed immediately by calling the console Web API, which prints the message.
+  This line is pushed into the Call Stack and executed immediately by calling the console Web API, which prints the message.
 
 - setTimeout(...)
-The setTimeout function is then pushed into the Call Stack. It’s handled by the browser’s Web API, which sets a timer for 5 seconds.
-The callback inside setTimeout is registered in the Timer Queue and will only be executed after the timer expires.
+  The setTimeout function is then pushed into the Call Stack. It’s handled by the browser’s Web API, which sets a timer for 5 seconds.
+  The callback inside setTimeout is registered in the Timer Queue and will only be executed after the timer expires.
 
 fetch("https://www.example.com")
 The fetch() call is also handled by the Web API. It starts a network request in the background and immediately returns a Promise.
@@ -188,3 +188,42 @@ Once the Microtask Queue is cleared, it moves to the Task Queue (like setTimeout
 
 This process ensures that asynchronous operations are handled efficiently without blocking the main thread.
 That’s how JavaScript — despite being single-threaded — performs non-blocking, asynchronous tasks smoothly with the help of the Event Loop.
+
+## 🧠 What is Prototype Chain in JavaScript?
+
+A **prototype** in JavaScript is basically an **object** from which other objects inherit properties and methods.  
+In JavaScript, the concept of **inheritance** is implemented through the **Prototype Chain**.
+
+Every object in JavaScript is internally linked with another object called its **prototype**.
+
+Whenever we look for a property or method in an object:
+
+1. It is first searched directly inside that object.
+2. If it’s not found there, JavaScript looks for it inside the object’s prototype.
+3. If it’s still not found, the search continues to the prototype of the prototype, and so on.
+
+This process continues until the property or method is found, or the search reaches the end of the prototype chain — which is when the prototype becomes `null`.
+
+When `null` is reached, it means we’ve reached the **end of the prototype chain**.
+
+Functions in JavaScript also have a `prototype` object.  
+When we create a function and use it as a constructor to create new objects, those objects are internally linked to the constructor’s prototype. This allows all instances created by the same constructor to share the same properties and methods defined on the constructor’s prototype.
+
+### 🧩 Example
+
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function () {
+  return `Hello, I'm ${this.name}`;
+};
+
+const alice = new Person("Alice");
+
+console.log(alice.greet()); // Output: Hello, I'm Alice
+console.log(alice.__proto__ === Person.prototype); // true
+console.log(Person.prototype.__proto__ === Object.prototype); // true
+console.log(Object.prototype.__proto__); // null (end of prototype chain)
+```
