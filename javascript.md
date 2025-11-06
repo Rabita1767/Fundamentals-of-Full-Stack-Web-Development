@@ -227,3 +227,24 @@ console.log(alice.__proto__ === Person.prototype); // true
 console.log(Person.prototype.__proto__ === Object.prototype); // true
 console.log(Object.prototype.__proto__); // null (end of prototype chain)
 ```
+
+## What is IIFE
+
+IIFE refers to **"Immediately Invoked Function Expression"**. Here, functions are defined and executed immediately.
+
+```js
+(function() {
+  var message = "I am Rabita Amin";
+  console.log(message); // Output: I am Rabita Amin
+})();
+console.log(message); // Output: ReferenceError
+
+
+here, we can see that, the function declaration does not need a name and it's called immediately after the declaration. The difference between a normal function and a IIFE is the way it allocates memory in it's scope. In case of normal function, it allocates memory and in the code execution phase a new execution context is created for that function. But in case of IIFE, as the function is executed when it's defined, it temporarily allocates memory and as soon as the function is executed the execution context is destroyed and memory is freed
+```
+
+Here, we can see that the function does not need a name and is called immediately after its declaration.
+The main difference between a normal function and an IIFE lies in how memory is allocated within its scope.
+
+In the case of a normal function, memory is allocated, and during the code execution phase, a new execution context is created for that function.
+But in the case of an IIFE, since the function is executed immediately after being defined, it allocates memory temporarily. As soon as the function finishes execution, its execution context is destroyed, and the memory is freed.
