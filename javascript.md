@@ -248,3 +248,31 @@ The main difference between a normal function and an IIFE lies in how memory is 
 
 In the case of a normal function, memory is allocated, and during the code execution phase, a new execution context is created for that function.
 But in the case of an IIFE, since the function is executed immediately after being defined, it allocates memory temporarily. As soon as the function finishes execution, its execution context is destroyed, and the memory is freed.
+
+## First Class Function
+
+In Javascript, Functions are treated as First Class Citizen. A programming language has a First Class Function means Functions are treated as variables here.
+
+1. Functions can be assigned into a variable
+2. Functions can be passed as an argument into another function
+3. Functions can be retired from another function
+
+```js
+const operation = {
+  add: (x, y) => {
+    return x + y;
+  },
+  subtraction: (x, y) => {
+    return x - y;
+  },
+};
+```
+
+## What is Higher Order Function
+
+A function is said to be a Higher Order Function if it has any of these properties
+
+1. A function can take one or more functions as it's parameters.
+2. Another function is returned from a function
+
+Some built in Higher Order Functions are: Map, Filter, Reduce etc
