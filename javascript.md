@@ -270,9 +270,36 @@ const operation = {
 
 ## What is Higher Order Function
 
-A function is said to be a Higher Order Function if it has any of these properties
+A **Higher Order Function** is a function that satisfies any of the following conditions:
 
-1. A function can take one or more functions as it's parameters.
-2. Another function is returned from a function
+1. It can take one or more functions as its parameters.
+2. It returns another function from within it.
 
-Some built in Higher Order Functions are: Map, Filter, Reduce etc
+Some built-in Higher Order Functions in JavaScript are:  
+**`map()`**, **`filter()`**, **`reduce()`**, etc.
+
+---
+
+## Datatypes in JavaScript
+
+JavaScript has various data types such as **string**, **number**, **undefined**, **null**, etc.  
+These are categorized into two main types:
+
+1. **Primitive Datatypes**
+2. **Non-primitive (Reference) Datatypes**
+
+### Primitive Datatypes:
+
+- number
+- string
+- bigInt
+- boolean
+- undefined
+- null
+- symbol
+
+### Non-primitive Datatypes:
+
+- object
+
+> Arrays and functions are special types of objects, hence they are **non-primitive datatypes**.
