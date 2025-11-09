@@ -303,3 +303,12 @@ These are categorized into two main types:
 - object
 
 > Arrays and functions are special types of objects, hence they are **non-primitive datatypes**.
+
+## Async/Await Function
+
+`async` and `await` are keywords in JavaScript that provide a cleaner and more readable way to handle **asynchronous operations** and **promises**.
+
+When a function is declared with the `async` keyword, it **automatically returns a promise**.  
+Inside an async function, the `await` keyword is used to **pause the execution** of the function until the promise is **settled** (either resolved or rejected).
+
+This allows asynchronous code to behave in a more **synchronous-like** manner, making it easier to read and manage.
