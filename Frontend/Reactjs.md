@@ -27,3 +27,11 @@ It provides a **centralized store** that holds the state of the entire applicati
 Another major reason to use Redux is to **avoid props drilling**. When data needs to be passed from a top-level component to deeply nested child components, props drilling can make the code messy and inefficient. Redux solves this problem by allowing components to directly access the required data from the global store.
 
 Additionally, Redux enforces **predictable and structured state updates**. Since we define reducers—which are functions that specify how the state should change—Redux ensures that state mutations follow strict, predictable rules. This helps maintain consistency and makes debugging easier.
+
+## Props and State
+
+Props and State are two fundamental concept for data management in React.
+
+**Props** Props are read-only immutable piece of data passed from parent component to child component. Props can only be updated within the parent component. It increases the component's reusibilituy.
+
+**State** State are mutable data in react. They are created and managed within components. States are updated using setState in class component and useState in Functional component.
