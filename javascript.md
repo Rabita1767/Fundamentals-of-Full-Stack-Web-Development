@@ -304,6 +304,30 @@ These are categorized into two main types:
 
 > Arrays and functions are special types of objects, hence they are **non-primitive datatypes**.
 
+### Map
+
+Map is similar to JavaScript objects because both store data in key–value pairs. However, there are some important differences.
+
+In a Map, keys can be of any data type, such as numbers, strings, objects, or even functions. In contrast, object keys are limited to strings or symbols, and other types are automatically converted to strings.
+
+JavaScript provides several built-in methods for working with Maps:
+
+new Map() – creates a new Map
+
+map.set(key, value) – adds or updates an entry
+
+map.get(key) – retrieves the value of a key
+
+map.delete(key) – removes a key-value pair
+
+map.clear() – removes all entries
+
+map.has(key) – checks if a key exists
+
+map.size – returns the number of entries in the Map
+
+Although we can assign values using map[key] = value, this does not actually add data to the Map. Instead, it creates a normal object property on the Map instance. Therefore, the correct way to add data to a Map is by using the map.set() method.
+
 ## Async/Await Function
 
 `async` and `await` are keywords in JavaScript that provide a cleaner and more readable way to handle **asynchronous operations** and **promises**.

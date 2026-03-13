@@ -39,7 +39,7 @@ It defines the **properties** and **methods** that an object will have.
 
 ## Encapsulation
 
-It is the process of binding data(attribute) and methods(functions) into a single unit or class. It is used to hide internal state pf an object and controlling access from unauthorized and unintended user
+It is the process of binding data(attribute) and methods(functions) into a single unit or class. It is used to hide internal state of an object, exposing what is necessary and controlling access from unauthorized and unintended user
 
 ## Inheritance
 
