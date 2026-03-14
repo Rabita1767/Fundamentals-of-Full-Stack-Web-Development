@@ -328,6 +328,63 @@ map.size – returns the number of entries in the Map
 
 Although we can assign values using map[key] = value, this does not actually add data to the Map. Instead, it creates a normal object property on the Map instance. Therefore, the correct way to add data to a Map is by using the map.set() method.
 
+### Set
+
+A Set is a special type collection – “set of values” (without keys), where each value may occur only once.
+
+JavaScript provides several built-in methods for working with Sets:
+
+new Set([iterable]) – creates the set, and if an iterable object is provided (usually an array), copies values from it into the set.
+
+set.add(value) – adds a value, returns the set itself.
+
+set.delete(value) – removes the value, returns true if value existed at the moment of the call, otherwise false.
+
+set.has(value) – returns true if the value exists in the set, otherwise false.
+
+set.clear() – removes everything from the set.
+
+set.size – is the elements count.
+
+### Typed Array
+
+A typed array is used to read or write raw binary data in a memory buffer. It's similar to an array object.
+
+Typed array objects share many of the same methods as arrays with similar semantics. However, typed arrays are not to be confused with normal arrays, as calling Array.isArray() on a typed array returns false. Moreover, not all methods available for normal arrays are supported by typed arrays (e.g., push and pop).
+
+## Shallow Clone
+
+A **shallow clone** creates a new object, but the nested properties inside the object still reference the same memory location as the original object.
+
+This means that while the top-level object is copied, any nested objects are **not duplicated**. Instead, their references are copied.
+
+Therefore, if we modify a nested property in the copied object, the same property in the original object will also be modified.
+
+---
+
+### Example
+
+```javascript
+const person = {
+  name: {
+    firstName: "Rabita",
+    lastName: "Amin",
+  },
+  age: 27,
+};
+
+const copiedPerson = { ...person }; // shallow copy
+
+copiedPerson.name.firstName = "John";
+copiedPerson.name.lastName = "Doe";
+
+console.log(copiedPerson.name.firstName); // John
+console.log(copiedPerson.name.lastName); // Doe
+
+console.log(person.name.firstName); // John
+console.log(person.name.lastName); // Doe
+```
+
 ## Async/Await Function
 
 `async` and `await` are keywords in JavaScript that provide a cleaner and more readable way to handle **asynchronous operations** and **promises**.
