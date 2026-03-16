@@ -385,6 +385,72 @@ console.log(person.name.firstName); // John
 console.log(person.name.lastName); // Doe
 ```
 
+## Deep Clone
+
+A **deep clone** creates a completely new copy of an object, including all nested objects.  
+This means that the copied object and the original object do **not share any references**.
+
+Therefore, modifying the copied object does **not affect the original object**.
+
+---
+
+### Example
+
+```javascript
+const person = {
+  name: {
+    firstName: "Rabita",
+    lastName: "Amin",
+  },
+  age: 27,
+};
+
+const copiedPerson = structuredClone(person);
+
+copiedPerson.name.firstName = "John";
+
+console.log(person.name.firstName); // Rabita
+console.log(copiedPerson.name.firstName); // John
+```
+
+## Default Parameter
+
+A default parameter in JavaScript is a value that a function parameter automatically takes if no argument (or undefined) is passed when the function is called.
+
+### Example
+
+```javascript
+function multiply(a, b = 2) {
+  return a * b;
+}
+
+console.log(multiply(5, 3)); // 15
+console.log(multiply(5)); // 10
+```
+
+## Rest Parameter
+
+A Rest parameter in JavaScript allows a function to accept an indefinite number of arguments and store them in a single array parameter.
+
+It is written using three dots ... before the parameter name.
+
+### Example
+
+```javascript
+function sum(...numbers) {
+  let total = 0;
+
+  for (let num of numbers) {
+    total += num;
+  }
+
+  return total;
+}
+
+console.log(sum(1, 2, 3)); // 6
+console.log(sum(4, 5, 6, 7)); // 22
+```
+
 ## Async/Await Function
 
 `async` and `await` are keywords in JavaScript that provide a cleaner and more readable way to handle **asynchronous operations** and **promises**.
