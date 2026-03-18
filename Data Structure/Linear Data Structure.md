@@ -29,3 +29,7 @@ Declaration of arrays is as follows int A[ 5 ] ;
 - The array will be created in the main memory if inside a function.
 - The Declaration and Initialization of array is as follows : Int B[5] = { 2, 9, 6, 8, 10 } ;
 - You can also access each element of array using for loop
+
+When we declare an array with a specific size and initialize it with less values then the rest of the values become zero.
+But in case of dynamic sized array, they get garbage values. 
+
