@@ -72,3 +72,35 @@ After storing the `char` (1 byte), the compiler adds **3 extra bytes** so that t
 This alignment ensures efficient memory access and proper alignment when creating arrays of structures.
 
 The extra unused bytes added by the compiler are called **padding**.
+
+# Pointer
+
+- Pointer is a address variable that is meant for storing address, not data
+  itself
+- They are used for indirect access of data
+- For a program to use heap memory , pointers is used
+- To access heap memory and resources outside the main memory like
+  internet, keyboard , monitor etc pointers is used
+- Pointers are also used for parameter passing
+
+```c
+Int main( )
+{
+Int a = 10 ; // data variable
+Int *p ; // declaration
+P = & a ; // Assignment / Initialization
+printf( “% d ” , a ) ;
+printf(“ %d ” , * p ) ; // dereferencing
+}
+```
+
+## Accessing Heap memory through pointer
+
+```c
+#include<stdio.h>
+Int main( )
+{
+Int * p;
+P = new int[5];
+}
+```
